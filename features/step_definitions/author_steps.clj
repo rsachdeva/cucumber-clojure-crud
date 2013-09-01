@@ -8,9 +8,14 @@
 
 (When #"^I add name \"([^\"]*)\"$" [name]
   (add-name name))
-
+                                
+(When #"^I delete name \"([^\"]*)\"$" [name]
+  (remove-name name))
+                                    
 (When #"^I request name \"([^\"]*)\"$" [requested-name]
   (reset! result (find-name requested-name)))
 
 (Then #"^I should get \"([^\"]*)\"$" [output-string]
   (is (= @result output-string)))
+                                   
+                                   
